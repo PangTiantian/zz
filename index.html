@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>油纸刻板</title>
+    <style>
+         html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        body>* {
+            box-sizing: border-box;
+            width: 1300px;
+            height: 1200px;
+            margin: 0 auto;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("图片2/背景.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .ren,.zi,.content,.left,.tiao,.ren2 {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .ren {
+            width: 450px;
+            height: 450px;
+            background-image: url("图片/002.gif");
+            position: absolute;
+            top: 80px;
+            left: 740px;
+            opacity: 0;
+            animation: ren1 6s linear;
+        }
+        @keyframes ren1 {
+            0%{opacity: 1;}
+            50%{opacity: 1;}
+            55%{opacity: 0;}
+        }
+        .ren2 {
+            width: 430px;
+            height: 480px;
+            background-image: url("图片/彩02.gif");
+            position: absolute;
+            top: 50px;
+            left: 740px;
+            opacity: 1;
+            animation: ren2 6s linear;
+        }
+        @keyframes ren2 {
+            0%{opacity: 0;}
+            50%{opacity: 0;}
+            56%{opacity: 0.6;}
+            57%{opacity: 1;}
+            100%{opacity: 1;}
+        }
+        .zi {
+            width: 200px;
+            height: 100px;
+            background-image: url("图片3/按钮油纸刻板.gif");
+            background-size: contain;
+            position: absolute;
+            top: 570px;
+            left: 860px;
+        }
+        .content {
+            width: 450px;
+            height: 250px;
+            background-image: url("图片3/文字油纸刻板.gif");
+            position: absolute;
+            left: 740px;
+            bottom: 230px;
+        }
+        .left {
+            width: 640px;
+            height: 1200px;
+            background-image: url("图片3/全图采蓝制靛.gif");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #big {
+            width: 1280px;
+            height: 1200px;
+            position: relative;
+            left: 0px;
+        }
+        .tiao {
+            width: 130px;
+            height: 100px;
+            background-image: url("图片2/跳过.gif");
+            position: absolute;
+            left: 1150px;
+            bottom: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        var left=0;
+        var raf;
+        function init(){
+            moveImage();
+        }
+        function moveImage(){
+            document.getElementById("big").style.left=left+"px";
+            left-=5;
+            if(left<=-640){
+                left=-640;
+            }
+            raf=window.requestAnimationFrame(moveImage);
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="big">
+        <div class="right">
+            <div class="ren"></div>
+            <div class="ren2"></div>
+            <div class="zi"></div>
+            <div class="content"></div>
+            <a href="#"><div class="tiao"></div></a>
+        </div>
+        <div class="left"></div>
+    </div>
+</body>
+</html>
